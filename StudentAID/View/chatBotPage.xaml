@@ -1,0 +1,91 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentAID.View.chatBotPage"
+             xmlns:selectors="clr-namespace:StudentAID.View.Selectors;assembly=StudentAID"
+             x:Name="ChatPage"
+             BackgroundColor="{StaticResource BackGroundColor}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="IncomingMessageTemplate">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Padding="5">
+                    <Frame MinimumWidthRequest="50" MaximumWidthRequest="275" CornerRadius="25" BackgroundColor="{StaticResource TertiaryLight}" Margin="5, 10, 5, 0" Padding="10" HasShadow="True">
+                        <Label Text="{Binding Text}" TextColor="Black" Padding="3" FontSize="16" AutomationProperties.Name="Incoming Message"/>
+                    </Frame>
+                </StackLayout>
+            </DataTemplate>
+            <DataTemplate x:Key="OutgoingMessageTemplate">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End" Padding="5">
+                    <Frame MinimumWidthRequest="50" MaximumWidthRequest="275" CornerRadius="15" BackgroundColor="{StaticResource TertiaryDark}" Margin="5, 10, 5, 0" Padding="10" HasShadow="True">
+                        <Label Text="{Binding Text}" TextColor="Black" Padding="3" FontSize="16" AutomationProperties.Name="Outgoing Message"/>
+                    </Frame>
+                </StackLayout>
+            </DataTemplate>
+            <selectors:MessageTemplateSelector x:Key="MessageTemplateSelector" IncomingMessageTemplate="{StaticResource IncomingMessageTemplate}" OutgoingMessageTemplate="{StaticResource OutgoingMessageTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        
+            <Grid VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+
+            <CollectionView x:Name="MessagesCollectionView"
+                            Grid.Row="0"
+                            ItemsSource="{Binding Messages}"
+                            ItemTemplate="{StaticResource MessageTemplateSelector}"
+                            ItemsUpdatingScrollMode="KeepLastItemInView"
+                            VerticalOptions="FillAndExpand"
+                            Margin="0,0,0,10">
+            </CollectionView>
+
+
+            <VerticalStackLayout Grid.Row="1" Padding="5">
+                <VerticalStackLayout.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Right" Command="{Binding OnSwipe}" CommandParameter="///libraryFinderPage" Threshold="20"/>
+                </VerticalStackLayout.GestureRecognizers>
+                <StackLayout Grid.Row="1" Orientation="Horizontal" Padding="5">
+                    <Entry x:Name="MessageEntry" HeightRequest="75" FontSize="16" Text="{Binding MessageText}" IsEnabled="{Binding IsMessageEntryEnabled}" HorizontalOptions="FillAndExpand" Placeholder="{Binding MessageEntryPlaceholder}" PlaceholderColor="Black" AutomationProperties.Name="Message Text Box" AutomationProperties.HelpText="Type your message here"/>
+                    <Image Source="Resources/Images/send.png" Scale="0.8" Margin="0,0,0,0" WidthRequest="50" HeightRequest="50" IsEnabled="{Binding EnabledStateSendButton}" AutomationProperties.Name="Send Message Button">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnSendClicked" NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                    <Image Source="Resources/Images/microphone.png" x:Name="StartButton" Scale="0.8" Margin="5,0,0,0" WidthRequest="50" HeightRequest="50" IsEnabled="{Binding EnabledStateSpeechButton}" AutomationProperties.Name="Speech to Text Button">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SpeechDetectCommand}" NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                    <Image Source="Resources/Images/captureimage.png" Scale="0.8" Margin="5,0,0,0" WidthRequest="50" HeightRequest="50" IsEnabled="{Binding EnabledStateCaptureButton}"  AutomationProperties.Name="Capture Image Button">
+                    <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CaptureAndAskCommand}" NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            </VerticalStackLayout>
+
+            <Grid IsVisible="{Binding IsListening}" BackgroundColor="#C8000000" Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Overlay Content -->
+                <Frame Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" 
+                       WidthRequest="150" HeightRequest="150" CornerRadius="75" BackgroundColor="LightGray" HasShadow="True">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label Text="Listening..." HorizontalOptions="Center" TextColor="Black" AutomationProperties.Name="Listening Status"/>
+                        <!-- Add more UI elements here as needed, like an animated circular progress indicator -->
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>

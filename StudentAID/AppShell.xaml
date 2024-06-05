@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="StudentAID.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:view="clr-namespace:StudentAID.View"
+    Shell.TabBarBackgroundColor="{StaticResource TertiaryLight}">
+
+    <TabBar>
+        <ShellContent Title="Home" Icon="Resources/Images/home.png" Route="homePage" ContentTemplate="{DataTemplate view:homePage}" AutomationProperties.Name="Home Icon" AutomationProperties.HelpText="This will take you to the Home Page"/>
+        <ShellContent Title="LibraryFinder" Icon="Resources/Images/library.png" Route="libraryFinderPage" ContentTemplate="{DataTemplate view:libraryFinderPage}" AutomationProperties.Name="LibraryFinder Icon" AutomationProperties.HelpText="This will take you to the LibraryFinder Page" />
+        <ShellContent Title="ChatBot" Icon="Resources/Images/chatbot.png" Route="chatBotPage" ContentTemplate="{DataTemplate view:chatBotPage}" AutomationProperties.Name="Chatbot Icon" AutomationProperties.HelpText="This will take you to the Chatbot Page" />
+    </TabBar>
+
+</Shell>

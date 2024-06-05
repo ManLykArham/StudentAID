@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+	<application android:allowBackup="true" android:icon="@drawable/appIcon" android:roundIcon="@drawable/appicon" android:supportsRtl="true" android:theme="@style/Maui.Splash">
+		<meta-data android:name="com.google.android.geo.API_KEY" android:value="google_maps-api_key-here" />
+		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+	</application>
+
+	<!-- Required to access the user's location -->
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<!-- Required to make phone vibrate -->
+	<uses-permission android:name="android.permission.VIBRATE"/>
+	<!-- Required to record audio -->
+	<uses-permission android:name="android.permission.RECORD_AUDIO" />
+	<!-- Required to capture image -->
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-feature android:name="android.hardware.camera" android:required="true" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+</manifest>

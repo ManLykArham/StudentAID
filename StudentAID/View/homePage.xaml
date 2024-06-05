@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             x:Class="StudentAID.View.homePage"
+             Title="Home"
+             BackgroundColor="{StaticResource BackGroundColor}">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="30">
+        <VerticalStackLayout.GestureRecognizers>
+            <SwipeGestureRecognizer Direction="Left" Command="{Binding OnSwipe}" CommandParameter="///libraryFinderPage" Threshold="30"/>
+        </VerticalStackLayout.GestureRecognizers>
+        <Label Text="Welcome to StudentAID!"
+                   FontSize="27"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" 
+                   AutomationProperties.Name="Welcome Message"
+                   AutomationProperties.HelpText="Welcome to StudentAID, your companion for boosting productivity." />
+
+
+            <Label Text="Your companion for boosting productivity and making study sessions more effective."
+                   FontSize="20"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   TextColor="{StaticResource SecondaryTextColor}"
+                   AutomationProperties.Name="Introduction"
+                   AutomationProperties.HelpText="Provides an introduction to the purpose of StudentAID." />
+
+
+            <!-- LibraryFinder Feature Description -->
+        <Frame 
+            x:Name="libraryFinderFrame"
+            BackgroundColor="{StaticResource SecondaryColor}"
+            CornerRadius="20" 
+            Padding="15"
+            AutomationProperties.Name="LibraryFinder Feature"
+            AutomationProperties.HelpText="Discover nearby libraries for studying. Tap here to use.">
+
+                <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnLibraryFinderTapped" NumberOfTapsRequired="1"/>
+                <SwipeGestureRecognizer Direction="Left" Command="{Binding OnSwipe}" CommandParameter="///libraryFinderPage" Threshold="30"/>
+            </Frame.GestureRecognizers>
+            <VerticalStackLayout>
+                <Label Text="LibraryFinder"
+                    FontSize="22"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    Padding="5"/>
+                <Label Text="Discover nearby libraries to find a perfect spot for uninterrupted studying. Allowing you to spend hours of deep focus."
+                    FontSize="18"
+                    TextColor="Black"
+                    Padding="5"/>
+                <Label Text="Tap Here!"
+                    FontSize="18"
+                    TextColor="{StaticResource SecondaryDark}"
+                    Padding="5"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- ChatBot Feature Description -->
+            <Frame 
+                x:Name="chatBotFrame"
+                BackgroundColor="{StaticResource PrimaryColor}" 
+                CornerRadius="20"
+                Padding="15"
+                AutomationProperties.Name="ChatBot Assistant Feature"
+                AutomationProperties.HelpText="Interact with the AI chat assistant for study help. Features voice recognition and photo analysis. Tap here to use.">
+
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnChatBotTapped" NumberOfTapsRequired="1"/>
+                    <SwipeGestureRecognizer Direction="Left" Command="{Binding OnSwipe}" CommandParameter="///libraryFinderPage" Threshold="30"/>
+                </Frame.GestureRecognizers>
+
+                <VerticalStackLayout>
+                    <Label Text="ChatBot Assistant"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           TextColor="Black"
+                           Padding="5"/>
+                    <Label Text="Utilize AI to enhance your studying. Instantly receive study-related guidance by asking any question. Features include voice recognition for convenient interaction and camera integration to analyze photos of your study materials."
+                           FontSize="18"
+                           TextColor="Black"
+                           Padding="5"/>
+                    <Label Text="Tap Here!"
+                           FontSize="18"
+                           TextColor="{StaticResource SecondaryDark}"
+                           Padding="5"
+                           HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
