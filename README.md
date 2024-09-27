@@ -30,6 +30,14 @@ The project gave me hands-on experience with mobile-specific challenges, like de
 
 ---
 
+## 🎥 Demo
+
+Watch the demo of the StudentAID Application:
+
+[Demo Video](https://youtu.be/YYL6pTitrM4?si=2twk6JU5y-24r4eB)
+
+---
+
 ## 🎯 Achievements & Learning Journey
 
 - **First Mobile App**: This project marked my first foray into Android development. It was both thrilling and challenging to design an intuitive and user-friendly app for smaller screens. It opened up a whole new world of possibilities for me in mobile development.
