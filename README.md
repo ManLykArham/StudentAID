@@ -53,3 +53,31 @@ Watch the demo of the StudentAID Application:
 ## 🎉 Overall
 
 Working on **StudentAID** was a huge step in my development journey. It taught me the ins and outs of mobile app creation, and it made me realise just how impactful mobile technology can be. The sense of accomplishment I felt when I saw the app running on a real device was amazing. It was more than just a project; it was a turning point in my learning and growth as a developer.
+
+---
+
+## 📘 Documentation
+
+<details>
+<summary>📸 Click to view the original StudentAID documentation screenshots</summary>
+
+<br>
+
+![Page 1](Documentation/page1.png)
+![Page 2](Documentation/page2.png)
+![Page 3](Documentation/page3.png)
+![Page 4](Documentation/page4.png)
+![Page 5](Documentation/page5.png)
+![Page 6](Documentation/page6.png)
+![Page 7](Documentation/page7.png)
+![Page 8](Documentation/page8.png)
+![Page 9](Documentation/page9.png)
+![Page 10](Documentation/page10.png)
+![Page 11](Documentation/page11.png)
+![Page 12](Documentation/page12.png)
+![Page 13](Documentation/page13.png)
+![Page 14](Documentation/page14.png)
+![Page 15](Documentation/page15.png)
+![Page 16](Documentation/page16.png)
+
+</details>
